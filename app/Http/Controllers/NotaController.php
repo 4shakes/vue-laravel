@@ -15,7 +15,7 @@ class NotaController extends Controller
     public function index(Request $request)
     {
         /* return Nota::where('user_id', auth()->id())->get(); */
-
+        /*   $request->wantsJson() */
         if ($request->ajax()) {
             return Nota::where('user_id', auth()->id())->get();
         } else {
@@ -46,7 +46,6 @@ class NotaController extends Controller
         $nota->descripcion = $request->descripcion;
         $nota->user_id = auth()->id();
         $nota->save();
-
         return $nota;
     }
 
